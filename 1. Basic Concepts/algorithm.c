@@ -112,7 +112,7 @@ void perm (char * list, int i, int n)
     }
     else
     { // list[i] to list[n] has more than one permutation, generate thesr recursively
-        for (j = 1; j <= n; j++)
+        for (j = i; j <= n; j++)
         {
             SWAP(list[i], list[j], temp);
             perm(list, i+1, n);
