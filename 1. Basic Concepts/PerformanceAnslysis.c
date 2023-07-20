@@ -6,6 +6,7 @@
 //
 
 #include <stdio.h>
+#define MAX_SIZE 15
 
 int count = 0;
 
@@ -46,7 +47,7 @@ float sum_count(float list[], int n)
 float sum_count_simple(float list[], int n)
 // count를 가진(실행 시간을 측정하기 위한) 리스트에 있는 수를 합산하기 위한 반복 함수를 간단히 표현(count를 쉽게 계산하기 위해)
 {
-    float tempsum = 0;
+    // float tempsum = 0;
     int i;
     for (i = 0; i < n; i++)
         count += 2;
@@ -71,7 +72,7 @@ void add(int a[][MAX_SIZE], int b[][MAX_SIZE], int c[][MAX_SIZE], int rows, int 
     int i, j;
     for (i = 0; i < rows; i++)
         for (j = 0; j < cols; j++)
-            c[i][j] = a[i][j] + b[i][j];
+            c[i][j] = a[i][j] + b[i]    [j];
 }
 
 void add_count(int a[][MAX_SIZE], int b[][MAX_SIZE], int c[][MAX_SIZE], int rows, int cols) // count문이 첨가된 행렬의 덧셈
@@ -95,6 +96,7 @@ void add_count_simple(int a[][MAX_SIZE], int b[][MAX_SIZE], int c[][MAX_SIZE], i
 {
     int i, j;
     for (i = 0; i < rows; i++)
+    {
         for (j = 0; j < cols; j++)
             count += 2;
         count += 2;
