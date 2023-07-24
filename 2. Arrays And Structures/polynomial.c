@@ -13,27 +13,27 @@
 //#define MAX_DEGREE 101 /* 다항식의 최대 차수 + 1*/
 //
 //typedef struct {
-//    int degree;
-//    float coef[MAX_DEGREE];
+//    int degree; // 지수
+//    float coef[MAX_DEGREE]; // 차수 (계수)
 //} polynomial;
 
-
+//#define COMPARE(x,y) (((x) < (y)) ? -1: ((x) == (y)) ? 0 : 1)
 ///* d = a + b, 여기서 a, b, d는 다항식이다. */
-//d = Zero()
-//while (!IsZero(a) && !IsZero(b)) do {
-//    switch COMPARE(LeapExp(a), LeapExp(b)) {
-//        case -1:
-//            d = Attach(d, coef(b, LeapExp(b)), LeapExp(b));
+//d = Zero(); // ADT, d = 0
+//while (!IsZero(a) && !IsZero(b)) do { // IsZero: 다항식이 0이면 TRUE, 0이 아니면 FALSE
+//    switch COMPARE(LeapExp(a), LeapExp(b)) { // 각 a, b 다항식에서 제일 큰 지수 비교
+//        case -1: // b가 더 클때
+//            d = Attach(d, coef(b, LeapExp(b)), LeapExp(b)); // coef는 계수를 return 함
 //            b = Remove(b, LeapExp(b));
 //            break;
-//        case 0: sum = Coef(a, LeapExp(a)) + Coef(b, LeapExp(b));
+//        case 0: sum = Coef(a, LeapExp(a)) + Coef(b, LeapExp(b)); // 같을 때
 //            if (sum) {
 //                Attach(d, sum. LeapExp(a));
 //                a = Remove(a, LeapExp(a));
 //                b = Remove(b, LeapExp(b));
 //            }
 //            break;
-//        case 1: d = Attach(d, Coef(a, LeapExp(a)), LeapExp(a));
+//        case 1: d = Attach(d, Coef(a, LeapExp(a)), LeapExp(a)); // a가 더 클때
 //            a = Remove(a, LeapExp(a));
 //    }
 //}
@@ -93,7 +93,7 @@ void padd(int startA, int finishA, int startB, int finishB, int *startD, int *fi
     for(; startA <= finishA; startA++)
         attach(terms[startA].coef, terms[startA].expon);
     /* B(x)의 나머지 항들을 첨가한다. */
-    for(; startA <= finishB; startB++)
+    for(; startB <= finishB; startB++)
         attach(terms[startB].coef, terms[startB].expon);
     *finishD = avail - 1;
 }
