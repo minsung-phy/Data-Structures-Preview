@@ -26,10 +26,10 @@ polyNode *a, *b;
 
 polyNode *padd(polyNode *a, polyNode *b);
 void attach(float coefficient, int exponent, polyNode **ptr);
+// void erase(polyNode **ptr);
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+int main(void) {
+
     return 0;
 }
 
@@ -77,3 +77,14 @@ void attach(float coefficient, int exponent, polyNode **ptr)
     (*ptr)->link = temp;
     *ptr = temp;
 }
+
+//void erase(polyNode **ptr)
+//{ // ptr에 의해 참조되는 다항식을 제거
+//    polyNode *temp;
+//    while (*ptr)
+//    {
+//        temp = *ptr;
+//        *ptr = (*ptr)->link;
+//        free(temp);
+//    }
+//}
