@@ -73,10 +73,10 @@ int main(void)
                     }
                     else x = x->link;
                 }
-            if (!top)
-                break;
-            x = seq[top->data];
-            top = top->link; // 스택에서 제거
+                if (!top)
+                    break;
+                x = seq[top->data];
+                top = top->link; // 스택에서 제거
             }
         }
     return 0;
